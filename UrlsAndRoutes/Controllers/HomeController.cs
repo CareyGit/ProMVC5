@@ -10,7 +10,10 @@ namespace UrlsAndRoutes.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            ViewBag.Controller = "Home";
+            ViewBag.Action = "Index";
+            ViewBag.CustomVariable = RouteData.Values["id"];
+            return View("ActionName");
         }
 
         public ActionResult About()
@@ -24,6 +27,13 @@ namespace UrlsAndRoutes.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        public ActionResult CustomVariable()
+        {
+            ViewBag.Controller = "Home";
+            ViewBag.Action = "CustomVariable";
+            ViewBag.CustomVariable = RouteData.Values["id"];
             return View();
         }
     }
