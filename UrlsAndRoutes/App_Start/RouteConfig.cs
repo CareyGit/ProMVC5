@@ -10,10 +10,14 @@ namespace UrlsAndRoutes
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute("MyRoute", "{controller}/{action}/{id}/{*catchall}",
-            new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-            new { controller = "^H.*", action = "^Index$|^About$", httpMethod = new HttpMethodConstraint("GET"), id = new RangeRouteConstraint(10, 20) },
-            new[] { "URLsAndRoutes.Controllers" });
+            routes.MapRoute("MyRoute", "{controller}/{action}/{id}",
+                new
+                {
+                    controller = "Home",
+                    action = "Index",
+                    id = UrlParameter.Optional
+                }
+            );
         }
     }
 }
